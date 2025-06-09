@@ -3,24 +3,31 @@
 <head> 
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Interactive Flashcards</title> 
-
- 
-    <style>
+    <title>Interactive Flashcards</title>    
+</head>
+    
+<body> 
+<style>
     body {
         font-family: Arial, sans-serif;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-        height: 100vh;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
         background-color: #f0f0f0;
-        overflow: hidden;
+        padding: 20px;
+    }
+    .flashcard-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        width: 90%;
+        max-width: 1200px;
     }
     .flashcard {
         width: 250px;
         height: 150px;
-        position: absolute;
         background-color: white;
         border: 1px solid #ccc;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -58,160 +65,163 @@
     }
 </style>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const flashcards = document.querySelectorAll(".flashcard");
-        
-        flashcards.forEach((card) => {
-            card.style.top = Math.random() * window.innerHeight + "px";
-            card.style.left = Math.random() * window.innerWidth + "px";
-            card.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 80%)`;
-            card.style.borderRadius = `${Math.random() * 20}px`;
-        });
-    });
-</script>
+<div class="flashcard-container">
+    <div class="flashcard" onclick="this.classList.toggle('flip')">
+        <div class="flashcard-content flashcard-front">
+            What is Kubernetes?
+        </div>
+        <div class="flashcard-content flashcard-back">
+            Kubernetes is an open-source platform for automating deployment, scaling, and operations of application containers across clusters of hosts.
+        </div>
+    </div>
     
-</head> 
-<body> 
- 
-<div class="flashcard" onclick="this.classList.toggle('flip')"> 
-    <div class="flashcard-content flashcard-front"> 
-        What is Azure Kubernetes Service (AKS)? 
+    <div class="flashcard" onclick="this.classList.toggle('flip')">
+        <div class="flashcard-content flashcard-front">
+            What is a Node in AKS?
+        </div>
+        <div class="flashcard-content flashcard-back">
+            A Node is a virtual machine in the AKS cluster that runs containerized applications.
+        </div>
+    </div>
+
+    <div class="flashcard" onclick="this.classList.toggle('flip')"> 
+        <div class="flashcard-content flashcard-front"> 
+            What is Azure Kubernetes Service (AKS)? 
+        </div> 
+        <div class="flashcard-content flashcard-back"> 
+            AKS is a managed container orchestration service provided by Microsoft Azure that simplifies deploying, managing, and operating Kubernetes. 
+        </div> 
     </div> 
-    <div class="flashcard-content flashcard-back"> 
-        AKS is a managed container orchestration service provided by Microsoft Azure that simplifies deploying, managing, and operating Kubernetes. 
+    
+    <div class="flashcard" onclick="this.classList.toggle('flip')"> 
+        <div class="flashcard-content flashcard-front"> 
+            What is Kubernetes? 
+        </div> 
+        <div class="flashcard-content flashcard-back"> 
+            Kubernetes is an open-source platform for automating deployment, scaling, and operations of application containers across clusters of hosts. 
+        </div> 
     </div> 
-</div> 
-
-<div class="flashcard" onclick="this.classList.toggle('flip')"> 
-    <div class="flashcard-content flashcard-front"> 
-        What is Kubernetes? 
-    </div> 
-    <div class="flashcard-content flashcard-back"> 
-        Kubernetes is an open-source platform for automating deployment, scaling, and operations of application containers across clusters of hosts. 
-    </div> 
-</div> 
-
-<div class="flashcard" onclick="this.classList.toggle('flip')">
-    <div class="flashcard-content flashcard-front">
-        What is a Deployment in Kubernetes?
+    
+    <div class="flashcard" onclick="this.classList.toggle('flip')">
+        <div class="flashcard-content flashcard-front">
+            What is a Deployment in Kubernetes?
+        </div>
+        <div class="flashcard-content flashcard-back">
+            A Deployment provides declarative updates to applications, managing the deployment of Pods and ReplicaSets.
+        </div>
     </div>
-    <div class="flashcard-content flashcard-back">
-        A Deployment provides declarative updates to applications, managing the deployment of Pods and ReplicaSets.
+    
+    <div class="flashcard" onclick="this.classList.toggle('flip')">
+        <div class="flashcard-content flashcard-front">
+            What is a Service in Kubernetes?
+        </div>
+        <div class="flashcard-content flashcard-back">
+            A Service is an abstraction that defines a logical set of Pods and a policy to access them, typically used to expose applications running in a cluster.
+        </div>
     </div>
-</div>
-
-<div class="flashcard" onclick="this.classList.toggle('flip')">
-    <div class="flashcard-content flashcard-front">
-        What is a Service in Kubernetes?
+    
+    <div class="flashcard" onclick="this.classList.toggle('flip')">
+        <div class="flashcard-content flashcard-front">
+            What is Helm?
+        </div>
+        <div class="flashcard-content flashcard-back">
+            Helm is a package manager for Kubernetes that helps to define, install, and upgrade complex Kubernetes applications.
+        </div>
     </div>
-    <div class="flashcard-content flashcard-back">
-        A Service is an abstraction that defines a logical set of Pods and a policy to access them, typically used to expose applications running in a cluster.
+    
+    <div class="flashcard" onclick="this.classList.toggle('flip')">
+        <div class="flashcard-content flashcard-front">
+            What is the Azure Container Registry (ACR)?
+        </div>
+        <div class="flashcard-content flashcard-back">
+            ACR is a managed Docker registry service based on the open-source Docker Registry 2.0, used for storing and managing container images.
+        </div>
     </div>
-</div>
-
-<div class="flashcard" onclick="this.classList.toggle('flip')">
-    <div class="flashcard-content flashcard-front">
-        What is Helm?
+    
+    <div class="flashcard" onclick="this.classList.toggle('flip')">
+        <div class="flashcard-content flashcard-front">
+            What is role-based access control (RBAC) in AKS?
+        </div>
+        <div class="flashcard-content flashcard-back">
+            RBAC is a mechanism for defining and enforcing permissions for users and applications to access resources within an AKS cluster.
+        </div>
     </div>
-    <div class="flashcard-content flashcard-back">
-        Helm is a package manager for Kubernetes that helps to define, install, and upgrade complex Kubernetes applications.
+    
+    <div class="flashcard" onclick="this.classList.toggle('flip')">
+        <div class="flashcard-content flashcard-front">
+            What is the Kubernetes API Server?
+        </div>
+        <div class="flashcard-content flashcard-back">
+            The Kubernetes API Server is a component of the Kubernetes control plane that exposes the Kubernetes API.
+        </div>
     </div>
-</div>
-
-<div class="flashcard" onclick="this.classList.toggle('flip')">
-    <div class="flashcard-content flashcard-front">
-        What is the Azure Container Registry (ACR)?
+    
+    <div class="flashcard" onclick="this.classList.toggle('flip')">
+        <div class="flashcard-content flashcard-front">
+            What is a DaemonSet in Kubernetes?
+        </div>
+        <div class="flashcard-content flashcard-back">
+            A DaemonSet ensures that all (or some) Nodes run a copy of a Pod, commonly used for log collection or monitoring.
+        </div>
     </div>
-    <div class="flashcard-content flashcard-back">
-        ACR is a managed Docker registry service based on the open-source Docker Registry 2.0, used for storing and managing container images.
+    
+    <div class="flashcard" onclick="this.classList.toggle('flip')">
+        <div class="flashcard-content flashcard-front">
+            What are Kubernetes Ingress Controllers?
+        </div>
+        <div class="flashcard-content flashcard-back">
+            Ingress Controllers manage external access to services in a Kubernetes cluster, typically via HTTP/HTTPS.
+        </div>
     </div>
-</div>
-
-<div class="flashcard" onclick="this.classList.toggle('flip')">
-    <div class="flashcard-content flashcard-front">
-        What is role-based access control (RBAC) in AKS?
+    
+    <div class="flashcard" onclick="this.classList.toggle('flip')">
+        <div class="flashcard-content flashcard-front">
+            What is the Azure CLI?
+        </div>
+        <div class="flashcard-content flashcard-back">
+            Azure CLI is a set of commands used to create and manage Azure resources, including AKS clusters, from the command line.
+        </div>
     </div>
-    <div class="flashcard-content flashcard-back">
-        RBAC is a mechanism for defining and enforcing permissions for users and applications to access resources within an AKS cluster.
+    
+    <div class="flashcard" onclick="this.classList.toggle('flip')">
+        <div class="flashcard-content flashcard-front">
+            What is a StatefulSet in Kubernetes?
+        </div>
+        <div class="flashcard-content flashcard-back">
+            A StatefulSet is a workload API object used to manage stateful applications, ensuring that each Pod has a unique identity and stable storage.
+        </div>
     </div>
-</div>
-
-<div class="flashcard" onclick="this.classList.toggle('flip')">
-    <div class="flashcard-content flashcard-front">
-        What is the Kubernetes API Server?
+    
+    <div class="flashcard" onclick="this.classList.toggle('flip')">
+        <div class="flashcard-content flashcard-front">
+            What is the Kubernetes Scheduler?
+        </div>
+        <div class="flashcard-content flashcard-back">
+            The Kubernetes Scheduler is responsible for placing Pods on Nodes based on resource availability and other constraints.
+        </div>
     </div>
-    <div class="flashcard-content flashcard-back">
-        The Kubernetes API Server is a component of the Kubernetes control plane that exposes the Kubernetes API.
+    
+    <div class="flashcard" onclick="this.classList.toggle('flip')">
+        <div class="flashcard-content flashcard-front">
+            What is Horizontal Pod Autoscaler (HPA)?
+        </div>
+        <div class="flashcard-content flashcard-back">
+            HPA automatically scales the number of Pods in a deployment based on observed CPU utilization or other select metrics.
+        </div>
     </div>
-</div>
-
-<div class="flashcard" onclick="this.classList.toggle('flip')">
-    <div class="flashcard-content flashcard-front">
-        What is a DaemonSet in Kubernetes?
+    
+    <div class="flashcard" onclick="this.classList.toggle('flip')">
+        <div class="flashcard-content flashcard-front">
+            What is a ConfigMap in Kubernetes?
+        </div>
+        <div class="flashcard-content flashcard-back">
+            A ConfigMap is a Kubernetes API object that stores configuration data in key-value pairs, allowing you to decouple configuration artifacts from image content.
+        </div>
     </div>
-    <div class="flashcard-content flashcard-back">
-        A DaemonSet ensures that all (or some) Nodes run a copy of a Pod, commonly used for log collection or monitoring.
-    </div>
-</div>
-
-<div class="flashcard" onclick="this.classList.toggle('flip')">
-    <div class="flashcard-content flashcard-front">
-        What are Kubernetes Ingress Controllers?
-    </div>
-    <div class="flashcard-content flashcard-back">
-        Ingress Controllers manage external access to services in a Kubernetes cluster, typically via HTTP/HTTPS.
-    </div>
-</div>
-
-<div class="flashcard" onclick="this.classList.toggle('flip')">
-    <div class="flashcard-content flashcard-front">
-        What is the Azure CLI?
-    </div>
-    <div class="flashcard-content flashcard-back">
-        Azure CLI is a set of commands used to create and manage Azure resources, including AKS clusters, from the command line.
-    </div>
-</div>
-
-<div class="flashcard" onclick="this.classList.toggle('flip')">
-    <div class="flashcard-content flashcard-front">
-        What is a StatefulSet in Kubernetes?
-    </div>
-    <div class="flashcard-content flashcard-back">
-        A StatefulSet is a workload API object used to manage stateful applications, ensuring that each Pod has a unique identity and stable storage.
-    </div>
-</div>
-
-<div class="flashcard" onclick="this.classList.toggle('flip')">
-    <div class="flashcard-content flashcard-front">
-        What is the Kubernetes Scheduler?
-    </div>
-    <div class="flashcard-content flashcard-back">
-        The Kubernetes Scheduler is responsible for placing Pods on Nodes based on resource availability and other constraints.
-    </div>
-</div>
-
-<div class="flashcard" onclick="this.classList.toggle('flip')">
-    <div class="flashcard-content flashcard-front">
-        What is Horizontal Pod Autoscaler (HPA)?
-    </div>
-    <div class="flashcard-content flashcard-back">
-        HPA automatically scales the number of Pods in a deployment based on observed CPU utilization or other select metrics.
-    </div>
-</div>
-
-<div class="flashcard" onclick="this.classList.toggle('flip')">
-    <div class="flashcard-content flashcard-front">
-        What is a ConfigMap in Kubernetes?
-    </div>
-    <div class="flashcard-content flashcard-back">
-        A ConfigMap is a Kubernetes API object that stores configuration data in key-value pairs, allowing you to decouple configuration artifacts from image content.
-    </div>
-</div>
- 
-<script> 
-    // JavaScript to handle the flip effect 
-</script> 
+     
+    <script> 
+        // JavaScript to handle the flip effect 
+    </script> 
  
 </body> 
 </html>
